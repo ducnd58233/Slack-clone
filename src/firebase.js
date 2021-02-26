@@ -12,9 +12,14 @@ const firebaseConfig = {
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
- 
-
 const db = firebaseApp.firestore();
 // firestore is a realtime db in Firebase
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+
+
+
+export { auth, provider }
+// use Object to export multiple things
 
 export default db;

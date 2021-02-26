@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
-function Header() {
+// function Header(props) {
+// Destructuring
+function Header({ user, signOut }) {
     return (
         <Container>
             <Main>
@@ -17,10 +19,11 @@ function Header() {
             </Main>
             <UserContainer>
                 <Name>
-                    Duc
+                    {/* {props.user.name} */}
+                    {user.name}
                 </Name>
-                <UserImage>
-                    <img src="https://i.imgur.com/6VBx3io.png"/>
+                <UserImage onClick={signOut}>
+                    <img src={ user.photo ? user.photo : "https://i.imgur.com/6VBx3io.png"}/>
                 </UserImage>
             </UserContainer>
         </Container>
@@ -91,6 +94,7 @@ const UserImage = styled.div `
     height: 28px;
     border: 2px solid white;
     border-radius: 3px;
+    cursor: pointer;
 
     img {
         width: 100%;
